@@ -1,0 +1,67 @@
+img {
+    max-width: 69px;
+}
+/*this is the standard we're set for our <img> files. all images have been assigned 69 pixels at birth.
+without any styling done to <img>, they will render at full size, at top right-alignment by default. 
+you can change other qualities, like margin, here too.
+because this is styling we're setting for the <img> object, unless otherwise specified by class or parent element,
+all images you upload (note: not video !!!) will be subject to this styling. */
+
+/* so since we do want variation between our image uploads:
+a selector beginning with . in front of it is a class. you can attribute multiple classes to one html object, say,
+to effect both size and animation properties. this allows for more detailed styling of your html content. */
+.img2 {
+    max-width: 169px;
+}
+
+/* here i'm making the class 'container' to refer to the structure our 'div' elements will take--this is how we are
+building the grid format! 
+'div' refers to 'content division', so other than being the child of a container parent, it won't present any 
+differently until styled. i'll come back to that in a second. */
+.container {
+    margin: 10% 20% 10%; /*this is building the grid with a margin of 10% of the parent element's (in this case, the
+    entire html page) total space around it at the top, 20% on the left and right sides, and 10% on the bottom.*/ 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); /*this builds the grid to accomodate 4 vertical columns, each equally 25% (1fr
+    as in fraction) of the 100% grid. they will repeat in perpetuity. */
+    grid-template-rows: repeat(4); /* same but for horziontal rows.*/
+    grid-auto-rows: auto; /*this allows the ordering of the grid to present its content in its entirety, by automating the
+    rows to fit differently-sized objects. */
+    column-gap: 17%; /* this and row-gap describe how much space we want between each column/row.*/
+    row-gap: 3%;
+  }
+
+/*and these are our div classes! our beautiful children SHIT FUCK AND MOTHERFUCKER! sorry it's
+.shit .fuck and .motherfucker, because they're classes ^____^
+these classes will be used to specify exactly where our div elements will land on the grid. these are
+explicitly child elements that will only be used on objects within the container parent. you wouldn't style
+anything outside your grid with these. */
+  .shit {
+    grid-column-start: 2; /* shit child shall spawn on the 2nd column, */
+    grid-row-start: 1; /* and first row of our grid. about top-left of center. */
+  }
+
+  .fuck {
+    grid-column-start: 3; /* it helps me to imagine these numbers as coordinates on our grid. */
+    grid-row-start: 2;
+  }
+
+  .motherfucker {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+
+  /*  we can make a class just to call in an animated effect for specific html elements.
+  i haven't tried this on video--i don't think it works, because video elements are presented entirely differently, 
+  but you can definitely do it to everything else. */
+  .ahhh {
+    animation: blinker 8s linear infinite; /* here i'm specifying that we want our animated object to BLINK, in a linear
+    fashion (not forwards-backwards, not randomly), for infinity. */
+  }
+  @keyframes blinker { /* you must call in the animation specified above using the keyframes at-rule. these rules have
+  specific names you have to correspond between animation and keyframes. you can google the effect you want, to figure out
+  what its recognized css name is. */
+    50% {
+      opacity: 0;
+    }
+  }
